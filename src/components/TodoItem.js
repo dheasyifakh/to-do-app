@@ -24,10 +24,13 @@ const TodoItem = ({ todo, toggleTodo, deleteTodo, editTodo, index, setTodos }) =
         <input
             type="text"
             value={todo.text}
-            className=""
+            className="form-control"
             style={editMode}
             onChange={(e)=>setTodos(e.target.value, todo.id)}
+            onKeyDown={handleUpdatedDone}
         />
+
+        <br />
         <span onClick={() => toggleTodo(todo.id)}>{todo.text}</span>
         <span>
             <button className="btn btn-success" style={{marginRight: "1rem"}} onClick={handleEditing}><FaEdit/></button>

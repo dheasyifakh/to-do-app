@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import TodoList from './components/TodoList';
 import AddTodoForm from './components/AddTodoForm';
+import Weather from './components/Weather';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -68,7 +69,7 @@ function App() {
                 <h3>Weather</h3>
               </div>
               <div className="card-body">
-                
+                <Weather/>
               </div>
             </div>
           </div>
