@@ -15,6 +15,12 @@ const Weather = () => {
             console.log(result);
           });
     },[])
+
+    var weathers = []
+    if(typeof weather == 'object'){
+        weathers= weather
+      }
+      console.log(weathers)
     const dateBuilder = (d) => {
         let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -43,7 +49,9 @@ const Weather = () => {
             
         </div>
         <div className="col-6 mt-5">
-        <div className="location">{weather.name}, {weather.sys.country}</div>
+            <div className="location">
+                {weathers && weathers?.name ? weathers.name : 'Loading'}, {weathers && weathers.sys && weathers.sys.country ? weathers.sys.country : 'Loading...'}
+            </div>
             <div className="date">{dateBuilder(new Date())}</div>
         </div>
     </div>
